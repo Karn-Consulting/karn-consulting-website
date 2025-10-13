@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import logoImage from "@assets/image_1760332792562.png";
 import heroImage from "@assets/stock_images/abstract_ai_neural_n_80bec60a.jpg";
 import { useState } from "react";
@@ -68,11 +68,6 @@ export default function VideoHero() {
       {/* Hero Content */}
       <div className="relative z-30 max-w-7xl mx-auto px-8 py-20 text-center">
         <div className="space-y-8 animate-fade-up max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary" data-testid="text-badge">Leading AI & ML Innovation</span>
-          </div>
-          
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
             <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
               Intelligent Solutions

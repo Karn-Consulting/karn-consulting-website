@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import logoImage from "@assets/image_1760332792562.png";
 import heroImage from "@assets/stock_images/abstract_ai_neural_n_80bec60a.jpg";
 
@@ -40,11 +40,6 @@ export default function HeroSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8 animate-fade-up">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary" data-testid="text-badge">Leading AI & ML Innovation</span>
-          </div>
-          
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
             <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
               Intelligent Solutions
