@@ -1,10 +1,11 @@
 import VideoHero from "@/components/VideoHero";
+import FounderSection from "@/components/FounderSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
+import ScrollingProjects from "@/components/ScrollingProjects";
 import VideoShowcase from "@/components/VideoShowcase";
 import TechnologyStack from "@/components/TechnologyStack";
 import ImageGallery from "@/components/ImageGallery";
-import CaseStudies from "@/components/CaseStudies";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -12,12 +13,13 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <VideoHero />
+      <FounderSection />
       <AboutSection />
       <ServicesSection />
+      <ScrollingProjects />
       <VideoShowcase />
       <TechnologyStack />
       <ImageGallery />
-      <CaseStudies />
       <ContactSection />
       <Footer />
     </div>

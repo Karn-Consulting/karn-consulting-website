@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Play } from "lucide-react";
-import logoImage from "@assets/Untitled design_1760331409261.png";
+import logoImage from "@assets/image_1760332792562.png";
 import heroImage from "@assets/stock_images/abstract_ai_neural_n_80bec60a.jpg";
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ export default function VideoHero() {
           className="absolute inset-0 w-full h-full object-cover"
           poster={heroImage}
         >
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+          <source src="https://cdn.pixabay.com/video/2021/04/16/71612-543486644_large.mp4" type="video/mp4" />
         </video>
       </div>
       

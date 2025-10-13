@@ -1,5 +1,5 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
-import logoImage from "@assets/Untitled design_1760331409261.png";
+import logoImage from "@assets/image_1760332792562.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

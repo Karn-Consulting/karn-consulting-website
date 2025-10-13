@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import logoImage from "@assets/Untitled design_1760331409261.png";
+import logoImage from "@assets/image_1760332792562.png";
 import heroImage from "@assets/stock_images/abstract_ai_neural_n_80bec60a.jpg";
 
 export default function HeroSection() {
