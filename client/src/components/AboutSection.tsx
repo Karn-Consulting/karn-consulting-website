@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { CheckCircle, Award, Users, Globe } from "lucide-react";
+import { CheckCircle, Award, Users, Globe, Target, Shield } from "lucide-react";
 import { useCounter } from "@/hooks/use-counter";
 import visionImage from "@assets/stock_images/futuristic_data_visu_72a9fc1b.jpg";
 import teamImage from "@assets/stock_images/digital_transformati_b71991f3.jpg";
@@ -12,9 +12,9 @@ const stats = [
 ];
 
 const values = [
-  { icon: Award, title: "Excellence", description: "Commitment to delivering best-in-class AI solutions" },
-  { icon: Users, title: "Collaboration", description: "Working closely with clients to understand their unique needs" },
-  { icon: Globe, title: "Innovation", description: "Pioneering advanced AI technologies for global impact" },
+  { icon: Target, title: "Mission", description: "Dedicated to empowering businesses with Self-Governing Intelligent Solutions" },
+  { icon: Shield, title: "Integrity", description: "Building trust through transparent, ethical AI practices and reliable partnerships" },
+  { icon: Award, title: "Excellence", description: "Commitment to delivering best-in-class AI solutions with measurable impact" },
 ];
 
 export default function AboutSection() {
