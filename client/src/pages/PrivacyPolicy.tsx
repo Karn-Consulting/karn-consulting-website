@@ -94,12 +94,24 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-semibold text-foreground mb-4">4. Information Sharing and Disclosure</h2>
             <p>We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Service Providers:</strong> With trusted third-party vendors who assist us in operating our website and conducting our business</li>
-              <li><strong>Legal Requirements:</strong> When required by law or to respond to legal process</li>
-              <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
-              <li><strong>Consent:</strong> With your explicit consent for any other purpose</li>
-            </ul>
+            <div className="space-y-3 mt-4">
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-1">Service Providers</h4>
+                <p className="pl-4">With trusted third-party vendors who assist us in operating our website and conducting our business</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-1">Legal Requirements</h4>
+                <p className="pl-4">When required by law or to respond to legal process</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-1">Business Transfers</h4>
+                <p className="pl-4">In connection with a merger, acquisition, or sale of assets</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-1">Consent</h4>
+                <p className="pl-4">With your explicit consent for any other purpose</p>
+              </div>
+            </div>
           </section>
 
           <section>
@@ -123,14 +135,29 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-semibold text-foreground mb-4">7. Your Rights and Choices</h2>
             <p>You have the following rights regarding your personal information:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Access:</strong> Request access to your personal information</li>
-              <li><strong>Correction:</strong> Request correction of inaccurate information</li>
-              <li><strong>Deletion:</strong> Request deletion of your information</li>
-              <li><strong>Portability:</strong> Request transfer of your information</li>
-              <li><strong>Opt-out:</strong> Opt-out of marketing communications</li>
-            </ul>
-            <p className="mt-3">
+            <div className="space-y-3 mt-4">
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-1">Access</h4>
+                <p className="pl-4">Request access to your personal information</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-1">Correction</h4>
+                <p className="pl-4">Request correction of inaccurate information</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-1">Deletion</h4>
+                <p className="pl-4">Request deletion of your information</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-1">Portability</h4>
+                <p className="pl-4">Request transfer of your information</p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-primary mb-1">Opt-out</h4>
+                <p className="pl-4">Opt-out of marketing communications</p>
+              </div>
+            </div>
+            <p className="mt-4">
               To exercise these rights, please contact us at support@karnconsulting.co
             </p>
           </section>
