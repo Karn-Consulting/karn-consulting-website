@@ -22,12 +22,16 @@ export default function HeroSection() {
 
       <div className="absolute top-0 left-0 right-0 z-10 p-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="relative w-40 h-12 overflow-hidden">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-chart-2/20 blur-xl scale-150" />
             <img 
               src={logoImage} 
               alt="Karn Consulting" 
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-auto object-contain"
-              style={{ clipPath: "inset(25% 0 25% 0)" }}
+              className="relative h-16 md:h-20 w-auto object-contain drop-shadow-2xl"
+              style={{ 
+                filter: "brightness(1.2) contrast(1.1)",
+                mixBlendMode: "screen"
+              }}
               data-testid="img-logo" 
             />
           </div>

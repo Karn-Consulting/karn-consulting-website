@@ -9,12 +9,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
-            <div className="relative w-32 h-10 overflow-hidden">
+            <div className="relative">
               <img 
                 src={logoImage} 
                 alt="Karn Consulting" 
-                className="absolute top-1/2 left-0 -translate-y-1/2 h-16 w-auto object-contain"
-                style={{ clipPath: "inset(25% 0 25% 0)" }}
+                className="h-12 w-auto object-contain opacity-90"
+                style={{ 
+                  filter: "brightness(1.1) contrast(1.05)"
+                }}
                 data-testid="img-footer-logo" 
               />
             </div>
