@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { CheckCircle, Award, Users, Globe, Target, Shield } from "lucide-react";
+import { CheckCircle, Award, Users, Globe, Target, Shield, Briefcase } from "lucide-react";
 import { useCounter } from "@/hooks/use-counter";
 import visionImage from "@assets/stock_images/futuristic_data_visu_72a9fc1b.jpg";
 import teamImage from "@assets/stock_images/digital_transformati_b71991f3.jpg";
@@ -102,7 +102,7 @@ export default function AboutSection() {
         </div>
 
         {/* Core Values */}
-        <div className="space-y-8">
+        <div className="space-y-8 mb-20">
           <h3 className="text-2xl font-bold text-center mb-8" data-testid="text-values-title">Our Core Values</h3>
           <div className="grid md:grid-cols-3 gap-8">
             {values.map((value, index) => {
@@ -125,6 +125,47 @@ export default function AboutSection() {
               );
             })}
           </div>
+        </div>
+
+        {/* Leadership */}
+        <div className="space-y-8">
+          <h3 className="text-2xl font-bold text-center mb-8" data-testid="text-leadership-title">Leadership</h3>
+          <Card className="overflow-hidden border-primary/10 bg-card/50 backdrop-blur-sm">
+            <div className="p-8 md:p-12">
+              <div className="flex items-start gap-6 mb-6">
+                <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20">
+                  <Briefcase className="w-8 h-8 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-xl font-bold mb-2" data-testid="text-founder-name">Prateek Karn</h4>
+                  <p className="text-primary font-medium mb-4" data-testid="text-founder-role">Founder & CEO</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4" data-testid="text-founder-bio">
+                    With over a decade of experience architecting high-impact growth strategies across international markets, 
+                    Prateek brings a unique blend of digital marketing mastery and AI innovation to Karn Consulting. His expertise 
+                    spans from managing multi-million dollar campaigns to developing custom AI agents that transform business workflows.
+                  </p>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                    <div className="text-center p-3 bg-primary/5 rounded-lg">
+                      <div className="text-xl font-bold text-primary" data-testid="text-leadership-years">10+</div>
+                      <div className="text-xs text-muted-foreground">Years Experience</div>
+                    </div>
+                    <div className="text-center p-3 bg-primary/5 rounded-lg">
+                      <div className="text-xl font-bold text-primary" data-testid="text-leadership-budget">$10M+</div>
+                      <div className="text-xs text-muted-foreground">Ad Budget Managed</div>
+                    </div>
+                    <div className="text-center p-3 bg-primary/5 rounded-lg">
+                      <div className="text-xl font-bold text-primary" data-testid="text-leadership-leads">40%</div>
+                      <div className="text-xs text-muted-foreground">Lead Gen Increase</div>
+                    </div>
+                    <div className="text-center p-3 bg-primary/5 rounded-lg">
+                      <div className="text-xl font-bold text-primary" data-testid="text-leadership-students">10K+</div>
+                      <div className="text-xs text-muted-foreground">Students Mentored</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </section>

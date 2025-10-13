@@ -1,5 +1,4 @@
 import VideoHero from "@/components/VideoHero";
-import FounderSection from "@/components/FounderSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ScrollingProjects from "@/components/ScrollingProjects";
@@ -20,7 +19,6 @@ export default function Home() {
       <TechnologyStack />
       <ImageGallery />
       <ContactSection />
-      <FounderSection />
       <Footer />
     </div>
   );
