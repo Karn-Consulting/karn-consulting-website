@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { useLocation } from "wouter";
 import logoImage from "@assets/image_1760332792562.png";
+import Footer from "@/components/Footer";
 
 export default function PrivacyPolicy() {
   const [, setLocation] = useLocation();
@@ -182,6 +183,7 @@ export default function PrivacyPolicy() {
           </section>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

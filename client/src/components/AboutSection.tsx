@@ -1,13 +1,14 @@
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Award, Users, Globe } from "lucide-react";
+import { useCounter } from "@/hooks/use-counter";
 import visionImage from "@assets/stock_images/futuristic_data_visu_72a9fc1b.jpg";
 import teamImage from "@assets/stock_images/digital_transformati_b71991f3.jpg";
 
 const stats = [
-  { value: "500+", label: "AI Models Deployed" },
-  { value: "95%", label: "Client Satisfaction" },
-  { value: "50M+", label: "Data Points Processed Daily" },
-  { value: "24/7", label: "Intelligent Monitoring" },
+  { value: 500, suffix: "+", label: "AI Models Deployed" },
+  { value: 95, suffix: "%", label: "Client Satisfaction" },
+  { value: 50, suffix: "M+", label: "Data Points Processed Daily" },
+  { value: 24, suffix: "/7", label: "Intelligent Monitoring" },
 ];
 
 const values = [
@@ -17,6 +18,13 @@ const values = [
 ];
 
 export default function AboutSection() {
+  // Create counter hooks for each stat
+  const counter1 = useCounter({ end: 500, suffix: "+", duration: 2500 });
+  const counter2 = useCounter({ end: 95, suffix: "%", duration: 2500 });
+  const counter3 = useCounter({ end: 50, suffix: "M+", duration: 2500 });
+  const counter4 = useCounter({ end: 24, suffix: "/7", duration: 2500 });
+
+  const counters = [counter1, counter2, counter3, counter4];
   return (
     <section className="py-20 md:py-32 relative" id="about" data-testid="section-about">
       {/* Background Pattern */}
@@ -46,8 +54,8 @@ export default function AboutSection() {
               style={{ animationDelay: `${index * 0.1}s` }}
               data-testid={`stat-card-${index}`}
             >
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2" data-testid={`stat-value-${index}`}>
-                {stat.value}
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2" data-testid={`stat-value-${index}`} ref={counters[index].ref as any}>
+                {counters[index].value}
               </div>
               <div className="text-sm text-muted-foreground" data-testid={`stat-label-${index}`}>
                 {stat.label}
