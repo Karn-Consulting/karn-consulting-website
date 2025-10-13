@@ -1,22 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { LeadFormDialog } from "./LeadFormDialog";
+import ctaImage from "@assets/stock_images/business_team_collab_87805356.jpg";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <section className="py-20 md:py-32 px-8 relative" id="contact" data-testid="section-contact">
@@ -64,71 +54,55 @@ export default function ContactSection() {
           </Card>
         </div>
 
-        <Card className="p-8 md:p-12 border-primary/10 max-w-3xl mx-auto backdrop-blur-sm bg-card/50 animate-scale-in" data-testid="card-contact-form">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium">Name *</label>
-                <Input
-                  id="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="border-primary/20 focus:border-primary"
-                  data-testid="input-name"
-                  required
-                />
+        {/* CTA Section */}
+        <div className="text-center mb-12">
+          <Button 
+            size="lg" 
+            className="group animate-scale-in"
+            onClick={() => setIsDialogOpen(true)}
+            data-testid="button-cta-primary"
+          >
+            Start Your AI Transformation
+            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </div>
+
+        {/* CTA Image */}
+        <Card 
+          className="max-w-4xl mx-auto overflow-hidden border-primary/10 cursor-pointer hover-elevate transition-all duration-300 animate-fade-up"
+          onClick={() => setIsDialogOpen(true)}
+          data-testid="card-cta-image"
+        >
+          <div className="relative group">
+            <img 
+              src={ctaImage} 
+              alt="Transform your business with AI" 
+              className="w-full h-[400px] object-cover"
+              data-testid="image-cta"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="text-center space-y-4 p-8">
+                <h3 className="text-2xl font-bold text-foreground">
+                  Ready to Get Started?
+                </h3>
+                <p className="text-muted-foreground max-w-md mx-auto">
+                  Join leading companies transforming their operations with our Self-Governing Intelligent Solutions
+                </p>
+                <Button 
+                  size="lg" 
+                  variant="secondary"
+                  className="mt-4"
+                  data-testid="button-cta-overlay"
+                >
+                  Schedule a Consultation
+                </Button>
               </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium">Email *</label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="border-primary/20 focus:border-primary"
-                  data-testid="input-email"
-                  required
-                />
-              </div>
             </div>
-
-            <div className="space-y-2">
-              <label htmlFor="company" className="text-sm font-medium">Company</label>
-              <Input
-                id="company"
-                placeholder="Your company name"
-                value={formData.company}
-                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="border-primary/20 focus:border-primary"
-                data-testid="input-company"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium">Message *</label>
-              <Textarea
-                id="message"
-                placeholder="Tell us about your project..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="border-primary/20 focus:border-primary min-h-32"
-                data-testid="input-message"
-                required
-              />
-            </div>
-
-            <Button 
-              type="submit" 
-              size="lg" 
-              className="w-full md:w-auto"
-              data-testid="button-submit"
-            >
-              Send Message
-            </Button>
-          </form>
+          </div>
         </Card>
+
+        {/* Lead Form Dialog */}
+        <LeadFormDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
       </div>
     </section>
   );

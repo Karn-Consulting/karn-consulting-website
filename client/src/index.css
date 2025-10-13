@@ -326,3 +326,67 @@
     inset: -1px;
   }
 }
+
+@layer components {
+  /* Phone Input Styles */
+  .phone-input-wrapper {
+    @apply relative;
+  }
+
+  .phone-input-wrapper .PhoneInput {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background;
+  }
+
+  .phone-input-wrapper.error .PhoneInput {
+    @apply border-destructive;
+  }
+
+  .PhoneInput:focus-within {
+    @apply ring-2 ring-ring ring-offset-2;
+  }
+
+  .PhoneInputCountry {
+    @apply flex items-center mr-2;
+  }
+
+  .PhoneInputCountryIcon {
+    @apply w-6 h-4 mr-1;
+  }
+
+  .PhoneInputCountryIcon--border {
+    @apply border border-border rounded;
+  }
+
+  .PhoneInputCountrySelect {
+    @apply absolute inset-0 opacity-0 cursor-pointer;
+  }
+
+  .PhoneInputCountrySelectArrow {
+    @apply ml-1 opacity-50 text-muted-foreground;
+  }
+
+  .PhoneInputCountry:hover .PhoneInputCountrySelectArrow {
+    @apply opacity-70;
+  }
+
+  .PhoneInputInput {
+    @apply flex-1 bg-transparent border-0 outline-none text-sm placeholder:text-muted-foreground;
+  }
+
+  .PhoneInputCountryIcon img {
+    @apply w-full h-full object-contain;
+  }
+
+  /* Dark mode adjustments */
+  .dark .PhoneInput {
+    @apply text-foreground;
+  }
+
+  .dark .PhoneInputInput {
+    @apply text-foreground;
+  }
+
+  .dark .PhoneInputCountrySelectArrow {
+    @apply text-muted-foreground;
+  }
+}
