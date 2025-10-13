@@ -66,9 +66,9 @@ export default function VideoHero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-30 max-w-7xl mx-auto px-8 py-20 text-center">
+      <div className="relative z-30 max-w-7xl mx-auto px-8 py-20 pt-32 text-center">
         <div className="space-y-8 animate-fade-up max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mt-12">
             <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
               Intelligent Solutions
             </span>
