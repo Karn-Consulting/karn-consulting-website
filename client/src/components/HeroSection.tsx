@@ -22,7 +22,15 @@ export default function HeroSection() {
 
       <div className="absolute top-0 left-0 right-0 z-10 p-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <img src={logoImage} alt="Karn Consulting" className="h-12 md:h-16" data-testid="img-logo" />
+          <div className="relative w-40 h-12 overflow-hidden">
+            <img 
+              src={logoImage} 
+              alt="Karn Consulting" 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-auto object-contain"
+              style={{ clipPath: "inset(25% 0 25% 0)" }}
+              data-testid="img-logo" 
+            />
+          </div>
         </div>
       </div>
 

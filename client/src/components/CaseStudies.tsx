@@ -37,7 +37,7 @@ const caseStudies = [
 
 export default function CaseStudies() {
   return (
-    <section className="py-20 md:py-32 px-8" data-testid="section-case-studies">
+    <section className="py-20 md:py-32 px-8" id="case-studies" data-testid="section-case-studies">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 space-y-4 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold" data-testid="text-case-studies-title">

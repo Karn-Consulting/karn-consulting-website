@@ -36,7 +36,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-20 md:py-32 px-8 relative" data-testid="section-services">
+    <section className="py-20 md:py-32 px-8 relative" id="services" data-testid="section-services">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
       
       <div className="max-w-7xl mx-auto relative z-10">

@@ -9,7 +9,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
-            <img src={logoImage} alt="Karn Consulting" className="h-10" data-testid="img-footer-logo" />
+            <div className="relative w-32 h-10 overflow-hidden">
+              <img 
+                src={logoImage} 
+                alt="Karn Consulting" 
+                className="absolute top-1/2 left-0 -translate-y-1/2 h-16 w-auto object-contain"
+                style={{ clipPath: "inset(25% 0 25% 0)" }}
+                data-testid="img-footer-logo" 
+              />
+            </div>
             <p className="text-sm text-muted-foreground" data-testid="text-footer-tagline">
               Leading AI & ML Solutions for the Future
             </p>

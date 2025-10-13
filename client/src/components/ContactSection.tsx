@@ -19,7 +19,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-20 md:py-32 px-8 relative" data-testid="section-contact">
+    <section className="py-20 md:py-32 px-8 relative" id="contact" data-testid="section-contact">
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
       
       <div className="max-w-7xl mx-auto relative z-10">

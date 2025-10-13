@@ -14,7 +14,7 @@ const technologies = [
 
 export default function TechnologyStack() {
   return (
-    <section className="py-20 md:py-32 px-8 relative overflow-hidden" data-testid="section-technology">
+    <section className="py-20 md:py-32 px-8 relative overflow-hidden" id="technology" data-testid="section-technology">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-chart-2/5" />
       </div>
