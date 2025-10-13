@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Download, Calendar, Users, Target, TrendingUp, Award, CheckCircle } from "lucide-react";
 import { useLocation } from "wouter";
+import { useCounter } from "@/hooks/use-counter";
 import aiDashboard from "@assets/stock_images/modern_business_prof_66fe6da9.jpg";
 import automation from "@assets/stock_images/automated_workflow_d_d41ad38e.jpg";
 import infrastructure from "@assets/stock_images/futuristic_technolog_2c39519e.jpg";

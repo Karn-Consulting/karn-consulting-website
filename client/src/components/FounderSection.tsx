@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Briefcase, Brain, TrendingUp, Award, Users, Target } from "lucide-react";
+import { useCounter } from "@/hooks/use-counter";
 import founderImage from "@assets/529770027_24300479449584050_4371908444917046077_n_1760332822611.jpg";
 
 const expertise = [
@@ -26,13 +27,21 @@ const expertise = [
 ];
 
 const achievements = [
-  { metric: "40%", description: "Lead Generation Increase" },
-  { metric: "$10M+", description: "Ad Budget Managed" },
-  { metric: "25%", description: "Average ROI Improvement" },
-  { metric: "10K+", description: "Students Mentored" }
+  { value: 40, suffix: "%", description: "Lead Generation Increase" },
+  { value: 10, prefix: "$", suffix: "M+", description: "Ad Budget Managed" },
+  { value: 25, suffix: "%", description: "Average ROI Improvement" },
+  { value: 10, suffix: "K+", description: "Students Mentored" }
 ];
 
 export default function FounderSection() {
+  // Create counter hooks for each achievement
+  const counter1 = useCounter({ end: 40, suffix: "%", duration: 2000 });
+  const counter2 = useCounter({ end: 10, prefix: "$", suffix: "M+", duration: 2000 });
+  const counter3 = useCounter({ end: 25, suffix: "%", duration: 2000 });
+  const counter4 = useCounter({ end: 10, suffix: "K+", duration: 2000 });
+
+  const counters = [counter1, counter2, counter3, counter4];
+
   return (
     <section className="py-20 md:py-32 px-8 relative" id="founder" data-testid="section-founder">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-chart-2/5" />
@@ -89,7 +98,9 @@ export default function FounderSection() {
               <div className="grid grid-cols-2 gap-4">
                 {achievements.map((achievement, index) => (
                   <div key={index} className="space-y-1" data-testid={`achievement-${index}`}>
-                    <div className="text-2xl font-bold text-primary">{achievement.metric}</div>
+                    <div className="text-2xl font-bold text-primary" ref={counters[index].ref as any}>
+                      {counters[index].value}
+                    </div>
                     <div className="text-sm text-muted-foreground">{achievement.description}</div>
                   </div>
                 ))}
