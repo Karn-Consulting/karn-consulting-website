@@ -78,10 +78,10 @@ export default function ImageGallery() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 space-y-4 animate-fade-up">
           <h2 className="text-4xl md:text-5xl font-bold" data-testid="text-gallery-title">
-            Visualizing <span className="bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">The Future</span>
+            Our <span className="bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">Success Stories</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-gallery-description">
-            Explore our portfolio of AI-driven transformations and intelligent solutions
+            Discover how we've transformed businesses with cutting-edge AI solutions and delivered measurable impact
           </p>
         </div>
 

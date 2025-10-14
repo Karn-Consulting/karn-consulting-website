@@ -80,18 +80,17 @@ export default function ContactSection() {
               className="w-full h-[400px] object-cover"
               data-testid="image-cta"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <div className="text-center space-y-4 p-8">
-                <h3 className="text-2xl font-bold text-foreground">
+            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/80 to-background/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+              <div className="text-center space-y-4 p-8 animate-fade-up">
+                <h3 className="text-3xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
                   Ready to Get Started?
                 </h3>
-                <p className="text-muted-foreground max-w-md mx-auto">
+                <p className="text-foreground/90 max-w-md mx-auto text-lg">
                   Join leading companies transforming their operations with our Self-Governing Intelligent Solutions
                 </p>
                 <Button 
                   size="lg" 
-                  variant="secondary"
-                  className="mt-4"
+                  className="mt-4 bg-gradient-to-r from-primary to-chart-2 text-primary-foreground"
                   data-testid="button-cta-overlay"
                 >
                   Schedule a Consultation

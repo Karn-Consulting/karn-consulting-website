@@ -5,9 +5,9 @@ import visionImage from "@assets/stock_images/futuristic_data_visu_72a9fc1b.jpg"
 import teamImage from "@assets/stock_images/digital_transformati_b71991f3.jpg";
 
 const stats = [
-  { value: 500, suffix: "+", label: "AI Models Deployed" },
+  { value: 400, suffix: "+", label: "AI Models Deployed" },
   { value: 95, suffix: "%", label: "Client Satisfaction" },
-  { value: 50, suffix: "M+", label: "Data Points Processed Daily" },
+  { value: 10, suffix: "M+", label: "Data Points Processed Daily" },
   { value: 24, suffix: "/7", label: "Intelligent Monitoring" },
 ];
 
@@ -19,9 +19,9 @@ const values = [
 
 export default function AboutSection() {
   // Create counter hooks for each stat
-  const counter1 = useCounter({ end: 500, suffix: "+", duration: 2500 });
+  const counter1 = useCounter({ end: 400, suffix: "+", duration: 2500 });
   const counter2 = useCounter({ end: 95, suffix: "%", duration: 2500 });
-  const counter3 = useCounter({ end: 50, suffix: "M+", duration: 2500 });
+  const counter3 = useCounter({ end: 10, suffix: "M+", duration: 2500 });
   const counter4 = useCounter({ end: 24, suffix: "/7", duration: 2500 });
 
   const counters = [counter1, counter2, counter3, counter4];
