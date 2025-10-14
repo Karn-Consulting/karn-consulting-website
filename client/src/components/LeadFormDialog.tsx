@@ -80,25 +80,50 @@ export function LeadFormDialog({ open, onOpenChange }: LeadFormDialogProps) {
     
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log("Lead form submitted:", formData);
-      toast({
-        title: "Thank you for your interest!",
-        description: "Our team will contact you within 24 hours.",
+    try {
+      // Submit lead to API
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
       
-      // Reset form and close dialog
-      setFormData({
-        name: "",
-        companyName: "",
-        email: "",
-        phone: "",
+      const result = await response.json();
+      
+      if (response.ok) {
+        toast({
+          title: "Thank you for your interest!",
+          description: "Our team will contact you within 24 hours.",
+        });
+        
+        // Reset form and close dialog
+        setFormData({
+          name: "",
+          companyName: "",
+          email: "",
+          phone: "",
+        });
+        setErrors({});
+        onOpenChange(false);
+      } else {
+        toast({
+          title: "Error",
+          description: result.error || "Failed to submit form. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting lead:", error);
+      toast({
+        title: "Error",
+        description: "Network error. Please try again later.",
+        variant: "destructive",
       });
-      setErrors({});
+    } finally {
       setIsSubmitting(false);
-      onOpenChange(false);
-    }, 1500);
+    }
   };
 
   return (
