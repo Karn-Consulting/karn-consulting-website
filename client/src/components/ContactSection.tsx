@@ -23,7 +23,11 @@ export default function ContactSection() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <Card className="p-8 border-primary/10 text-center space-y-4 hover-elevate" data-testid="card-email">
+          <Card 
+            className="p-8 border-primary/10 text-center space-y-4 hover-elevate cursor-pointer" 
+            data-testid="card-email"
+            onClick={() => window.location.href = 'mailto:support@karnconsulting.co'}
+          >
             <div className="w-12 h-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20">
               <Mail className="w-6 h-6 text-primary" />
             </div>
@@ -33,7 +37,11 @@ export default function ContactSection() {
             </div>
           </Card>
 
-          <Card className="p-8 border-primary/10 text-center space-y-4 hover-elevate" data-testid="card-phone">
+          <Card 
+            className="p-8 border-primary/10 text-center space-y-4 hover-elevate cursor-pointer" 
+            data-testid="card-phone"
+            onClick={() => window.location.href = 'tel:+917576956682'}
+          >
             <div className="w-12 h-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20">
               <Phone className="w-6 h-6 text-primary" />
             </div>
@@ -52,19 +60,6 @@ export default function ContactSection() {
               <p className="text-sm text-muted-foreground" data-testid="text-location-value">India</p>
             </div>
           </Card>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center mb-12">
-          <Button 
-            size="lg" 
-            className="group animate-scale-in"
-            onClick={() => setIsDialogOpen(true)}
-            data-testid="button-cta-primary"
-          >
-            Start Your AI Transformation
-            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Button>
         </div>
 
         {/* CTA Image */}
