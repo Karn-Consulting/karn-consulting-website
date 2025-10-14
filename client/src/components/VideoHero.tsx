@@ -41,15 +41,15 @@ export default function VideoHero() {
       </div>
 
       {/* Navigation Header */}
-      <div className="absolute top-0 left-0 right-0 z-30 p-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="absolute top-0 left-0 right-0 z-50 p-4 md:p-8" style={{ pointerEvents: 'auto' }}>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-chart-2/30 blur-lg opacity-75 group-hover:opacity-100 transition-opacity" />
             <div className="relative bg-background/20 backdrop-blur-md rounded-lg px-4 py-2 border border-primary/10">
               <img 
                 src={logoImage} 
                 alt="Karn Consulting" 
-                className="h-14 md:h-16 w-auto object-contain"
+                className="h-12 md:h-16 w-auto object-contain"
                 style={{ 
                   filter: "brightness(1.3) contrast(1.2) drop-shadow(0 0 20px rgba(79, 172, 254, 0.5))"
                 }}
@@ -57,51 +57,59 @@ export default function VideoHero() {
               />
             </div>
           </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <a 
-              href="#services" 
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer" 
+          <nav className="flex flex-wrap items-center gap-4 md:gap-8">
+            <button 
+              className="text-sm md:text-base font-medium text-white hover:text-primary transition-colors cursor-pointer px-3 py-2 bg-background/10 backdrop-blur-md rounded-lg border border-primary/20 hover:border-primary/40" 
               data-testid="nav-services"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                const element = document.getElementById('services');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
             >
               Services
-            </a>
-            <a 
-              href="#technology" 
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer" 
+            </button>
+            <button 
+              className="text-sm md:text-base font-medium text-white hover:text-primary transition-colors cursor-pointer px-3 py-2 bg-background/10 backdrop-blur-md rounded-lg border border-primary/20 hover:border-primary/40" 
               data-testid="nav-technology"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('technology')?.scrollIntoView({ behavior: 'smooth' });
+                const element = document.getElementById('technology');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
             >
               Technology
-            </a>
-            <a 
-              href="#case-studies" 
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer" 
+            </button>
+            <button 
+              className="text-sm md:text-base font-medium text-white hover:text-primary transition-colors cursor-pointer px-3 py-2 bg-background/10 backdrop-blur-md rounded-lg border border-primary/20 hover:border-primary/40" 
               data-testid="nav-case-studies"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
+                const element = document.getElementById('case-studies');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
             >
               Case Studies
-            </a>
-            <a 
-              href="#contact" 
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer" 
+            </button>
+            <button 
+              className="text-sm md:text-base font-medium text-white hover:text-primary transition-colors cursor-pointer px-3 py-2 bg-background/10 backdrop-blur-md rounded-lg border border-primary/20 hover:border-primary/40" 
               data-testid="nav-contact"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
             >
               Contact
-            </a>
+            </button>
           </nav>
         </div>
       </div>
