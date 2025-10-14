@@ -58,10 +58,50 @@ export default function VideoHero() {
             </div>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-services">Services</a>
-            <a href="#technology" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-technology">Technology</a>
-            <a href="#case-studies" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-case-studies">Case Studies</a>
-            <a href="#contact" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-contact">Contact</a>
+            <a 
+              href="#services" 
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer" 
+              data-testid="nav-services"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Services
+            </a>
+            <a 
+              href="#technology" 
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer" 
+              data-testid="nav-technology"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('technology')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Technology
+            </a>
+            <a 
+              href="#case-studies" 
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer" 
+              data-testid="nav-case-studies"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Case Studies
+            </a>
+            <a 
+              href="#contact" 
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer" 
+              data-testid="nav-contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Contact
+            </a>
           </nav>
         </div>
       </div>
