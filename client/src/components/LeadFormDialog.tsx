@@ -109,7 +109,7 @@ export function LeadFormDialog({ open, onOpenChange }: LeadFormDialogProps) {
             Transform Your Business with AI
           </DialogTitle>
           <DialogDescription>
-            Connect with our Self-Governing Intelligence experts today
+            Connect with our Intelligence Experts today
           </DialogDescription>
         </DialogHeader>
         
