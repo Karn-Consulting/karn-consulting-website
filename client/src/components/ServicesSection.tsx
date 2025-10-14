@@ -61,9 +61,9 @@ export default function ServicesSection() {
                 data-testid={`card-service-${index}`}
               >
                 <div className="mb-6 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/40 to-chart-2/40 blur-lg opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" />
-                  <div className="relative w-16 h-16 rounded-lg bg-gradient-to-br from-primary/20 to-chart-2/20 flex items-center justify-center border border-primary/20 group-hover:border-primary/40 transition-all duration-300 shadow-lg shadow-primary/20 group-hover:shadow-primary/40">
-                    <Icon className="w-8 h-8 text-primary drop-shadow-[0_0_12px_rgba(79,172,254,0.5)] group-hover:drop-shadow-[0_0_20px_rgba(79,172,254,0.8)] transition-all duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/40 to-chart-2/40 blur-xl slow-pulse-glow" />
+                  <div className="relative w-16 h-16 rounded-lg bg-gradient-to-br from-primary/20 to-chart-2/20 flex items-center justify-center border border-primary/20">
+                    <Icon className="w-8 h-8 text-primary" />
                   </div>
                 </div>
                 

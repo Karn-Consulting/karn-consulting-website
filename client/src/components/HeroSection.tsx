@@ -14,27 +14,15 @@ export default function HeroSection() {
         }}
       />
       
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/30 blur-3xl rounded-full animate-float" />
-        <div className="absolute top-40 right-20 w-40 h-40 bg-primary/20 blur-3xl rounded-full animate-float" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-32 left-1/4 w-36 h-36 bg-primary/25 blur-3xl rounded-full animate-float" style={{ animationDelay: "2s" }} />
-      </div>
 
       <div className="absolute top-0 left-0 right-0 z-10 p-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-chart-2/20 blur-xl scale-150" />
-            <img 
-              src={logoImage} 
-              alt="Karn Consulting" 
-              className="relative h-16 md:h-20 w-auto object-contain drop-shadow-2xl"
-              style={{ 
-                filter: "brightness(1.2) contrast(1.1)",
-                mixBlendMode: "screen"
-              }}
-              data-testid="img-logo" 
-            />
-          </div>
+          <img 
+            src={logoImage} 
+            alt="Karn Consulting" 
+            className="h-16 md:h-20 w-auto object-contain"
+            data-testid="img-logo" 
+          />
         </div>
       </div>
 
@@ -76,11 +64,10 @@ export default function HeroSection() {
         </div>
 
         <div className="relative animate-scale-in" style={{ animationDelay: "0.2s" }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-lg blur-2xl" />
           <img 
             src={heroImage} 
             alt="AI Neural Network" 
-            className="relative rounded-lg shadow-2xl border border-primary/20"
+            className="rounded-lg shadow-2xl border border-primary/20"
             data-testid="img-hero"
           />
         </div>

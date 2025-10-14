@@ -390,3 +390,19 @@
     @apply text-muted-foreground;
   }
 }
+
+/* Custom slow pulsing glow animation for service icons */
+@keyframes slowPulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.slow-pulse-glow {
+  animation: slowPulseGlow 3s ease-in-out infinite;
+}
