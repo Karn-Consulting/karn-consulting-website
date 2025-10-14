@@ -3,7 +3,6 @@ import FounderSection from "@/components/FounderSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ScrollingProjects from "@/components/ScrollingProjects";
-import VideoShowcase from "@/components/VideoShowcase";
 import TechnologyStack from "@/components/TechnologyStack";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -15,7 +14,6 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <ScrollingProjects />
-      <VideoShowcase />
       <TechnologyStack />
       <ContactSection />
       <FounderSection />
