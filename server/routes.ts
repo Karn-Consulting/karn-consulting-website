@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertLeadSchema } from "@shared/schema";
 import { z } from "zod";
+import { sendLeadEmails } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Lead capture routes
@@ -21,6 +22,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         email: lead.email,
         phone: lead.phone,
         createdAt: lead.createdAt
+      });
+      
+      // Send email notifications (don't await to not block response)
+      sendLeadEmails(lead).catch(error => {
+        console.error("Failed to send lead emails:", error);
       });
       
       res.status(201).json({ 
