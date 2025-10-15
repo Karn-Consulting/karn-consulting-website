@@ -217,16 +217,18 @@ export default function ProjectDetail() {
         
         <div className="relative z-10 h-full flex items-end">
           <div className="max-w-7xl mx-auto px-8 py-12 w-full">
-            <Button 
-              variant="outline" 
-              size="sm"
-              className="mb-6"
-              onClick={() => setLocation("/")}
-              data-testid="button-back"
-            >
-              <ArrowLeft className="mr-2 w-4 h-4" />
-              Back to Projects
-            </Button>
+            <div className="inline-block mb-6 p-2 bg-background/80 backdrop-blur-md rounded-lg">
+              <Button 
+                variant="default" 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl hover-elevate active-elevate-2 font-semibold"
+                onClick={() => setLocation("/")}
+                data-testid="button-back"
+              >
+                <ArrowLeft className="mr-2 w-5 h-5" />
+                Back to All Projects
+              </Button>
+            </div>
             
             <div className="space-y-4">
               <div className="flex items-center gap-4 flex-wrap">
