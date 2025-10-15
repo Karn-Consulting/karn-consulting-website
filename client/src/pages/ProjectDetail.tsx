@@ -226,7 +226,7 @@ export default function ProjectDetail() {
                 data-testid="button-back"
               >
                 <ArrowLeft className="mr-2 w-5 h-5" />
-                Back to All Projects
+                Back to Case Studies
               </Button>
             </div>
             

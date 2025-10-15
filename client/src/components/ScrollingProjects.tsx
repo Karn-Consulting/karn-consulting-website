@@ -106,10 +106,10 @@ export default function ScrollingProjects() {
       <div className="relative z-10">
         <div className="text-center mb-16 space-y-4 animate-fade-up px-8">
           <h2 className="text-4xl md:text-5xl font-bold" data-testid="text-projects-title">
-            Transforming <span className="bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">Industries</span> with AI
+            Our <span className="bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">Case Studies</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-projects-description">
-            Explore our portfolio of successful AI implementations across diverse sectors
+            Real success stories of AI transformation across diverse industries
           </p>
         </div>
 
