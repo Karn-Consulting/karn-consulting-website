@@ -48,6 +48,7 @@ In Vercel dashboard, add these:
 ```
 DATABASE_URL = [Your PostgreSQL URL from Neon/Supabase]
 SESSION_SECRET = any-random-32-character-string-here
+RESEND_API_KEY = [Optional - for email functionality]
 ```
 
 ### Get a Free Database:
@@ -80,10 +81,16 @@ SESSION_SECRET = any-random-32-character-string-here
 ✅ **Created Vercel Functions** (`api/leads.ts`)
 - Converted Express routes to serverless functions
 - Handles lead capture and retrieval
+- **Email functionality integrated** - sends thank you emails and notifications
 
 ✅ **Added Vercel Config** (`vercel.json`)
 - Build settings configured
 - Routes set up correctly
+
+✅ **Email System Ready**
+- Thank you popup always shows (no configuration needed)
+- Automated emails work when you add RESEND_API_KEY
+- Email templates included in `api/email-templates.ts`
 
 ✅ **Database Ready**
 - Works with any PostgreSQL (Neon, Supabase, etc.)
