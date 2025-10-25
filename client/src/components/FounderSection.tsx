@@ -58,17 +58,14 @@ export default function FounderSection() {
 
         <Card className="overflow-hidden border-primary/10 bg-card/50 backdrop-blur-sm">
           <div className="grid md:grid-cols-2 gap-0">
-            <a 
-              href="https://www.linkedin.com/in/prateekkarn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group cursor-pointer"
-              data-testid="link-founder-linkedin"
+            <div 
+              className="relative group"
+              data-testid="div-founder-image"
             >
               <img 
                 src={founderImage} 
                 alt="Prateek Karn - Founder & CEO"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover"
                 data-testid="img-founder"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
@@ -80,7 +77,7 @@ export default function FounderSection() {
                   Founder & CEO
                 </p>
               </div>
-            </a>
+            </div>
 
             <div className="p-8 md:p-12 space-y-8">
               <div className="space-y-4">
