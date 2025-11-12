@@ -116,10 +116,11 @@ export default function ScrollingProjects() {
         {/* Scrolling container */}
         <div className="relative">
           <div 
-            className="flex gap-6 animate-scroll-left"
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 md:animate-scroll-left"
           >
             {/* Duplicate projects for infinite scroll */}
-            {[...projects, ...projects].map((project, index) => (
+            {/* Duplicate projects for infinite scroll on desktop, single on mobile */}
+            {window.innerWidth >= 768 ? [...projects, ...projects].map((project, index) => (
               <Card
                 key={`${project.id}-${index}`}
                 className="flex-shrink-0 w-[400px] overflow-hidden border-primary/10 hover:border-primary/30 transition-all cursor-pointer group"
@@ -130,7 +131,129 @@ export default function ScrollingProjects() {
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-105" loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm text-xs font-medium text-primary border border-primary/30">
+                      {project.client}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-4">
+                  <h3 className="text-xl font-semibold" data-testid={`project-title-${index}`}>
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-3">
+                    {Object.entries(project.metrics).slice(0, 2).map(([key, value]) => (
+                      <div key={key} className="flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4 text-primary" />
+                        <span className="text-sm font-medium">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="text-xs px-2 py-1 rounded bg-primary/10 text-primary">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="w-full group/btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setLocation(`/project/${project.id}`);
+                    }}
+                    data-testid={`project-button-${index}`}
+                  >
+                    View Case Study
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+              </Card>
+            )) : projects.map((project, index) => (
+              <Card
+                key={`${project.id}-${index}`}
+                className="flex-shrink-0 w-[85vw] overflow-hidden border-primary/10 hover:border-primary/30 transition-all cursor-pointer group snap-center"
+                onClick={() => setLocation(`/project/${project.id}`)}
+                data-testid={`project-card-${index}`}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-105" loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full bg-primary/20 backdrop-blur-sm text-xs font-medium text-primary border border-primary/30">
+                      {project.client}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="p-6 space-y-4">
+                  <h3 className="text-xl font-semibold" data-testid={`project-title-${index}`}>
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-3">
+                    {Object.entries(project.metrics).slice(0, 2).map(([key, value]) => (
+                      <div key={key} className="flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4 text-primary" />
+                        <span className="text-sm font-medium">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="text-xs px-2 py-1 rounded bg-primary/10 text-primary">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="w-full group/btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setLocation(`/project/${project.id}`);
+                    }}
+                    data-testid={`project-button-${index}`}
+                  >
+                    View Case Study
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+              </Card>
+            ))}
+              <Card
+                key={`${project.id}-${index}`}
+                className="flex-shrink-0 w-[85vw] sm:w-[400px] overflow-hidden border-primary/10 hover:border-primary/30 transition-all cursor-pointer group snap-center"
+                onClick={() => setLocation(`/project/${project.id}`)}
+                data-testid={`project-card-${index}`}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-105" loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
                   <div className="absolute top-4 left-4">
