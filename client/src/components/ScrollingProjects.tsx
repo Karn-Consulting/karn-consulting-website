@@ -116,19 +116,19 @@ export default function ScrollingProjects() {
         {/* Scrolling container */}
         <div className="relative">
           <div 
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 md:grid md:grid-cols-3 md:gap-8 md:overflow-x-hidden md:animate-none"
+            className="md:grid md:grid-cols-3 md:gap-8"
           >
             {/* Duplicate projects for infinite scroll */}
             {/* Duplicate projects for infinite scroll */}
             {/* Desktop Grid (Static) */}
             <div className="hidden md:grid md:grid-cols-3 md:gap-8">
               {projects.map((project, index) => (
-                <Card
-                  key={`${project.id}-${index}`}
-                  className="overflow-hidden border-primary/10 hover:border-primary/30 transition-all cursor-pointer group"
-                  onClick={() => setLocation(`/project/${project.id}`)}
-                  data-testid={`project-card-desktop-${index}`}
-                >
+              <Card
+                key={`${project.id}-${index}`}
+                className="overflow-hidden border-primary/10 hover:border-primary/30 transition-all cursor-pointer group"
+                onClick={() => setLocation(`/project/${project.id}`)}
+                data-testid={`project-card-desktop-${index}`}
+              >
                   <div className="relative h-48 overflow-hidden">
                     <img 
                       src={project.image} 
