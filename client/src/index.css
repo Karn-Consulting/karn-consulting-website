@@ -255,12 +255,12 @@ html {
   /* Show scrollbar on desktop for better UX */
   @media (min-width: 768px) {
     .md\:scrollbar-visible {
-      -ms-overflow-style: auto;  /* IE and Edge */
-      scrollbar-width: thin;  /* Firefox */
+      -ms-overflow-style: auto !important;  /* IE and Edge */
+      scrollbar-width: thin !important;  /* Firefox */
     }
     
     .md\:scrollbar-visible::-webkit-scrollbar {
-      display: block;  /* Chrome, Safari and Opera */
+      display: block !important;  /* Chrome, Safari and Opera */
       height: 8px;
     }
     

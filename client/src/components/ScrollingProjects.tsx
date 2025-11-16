@@ -119,7 +119,7 @@ export default function ScrollingProjects() {
           <div className="hidden md:block absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="hidden md:block absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           
-          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 md:scrollbar-visible scrollbar-hide">
+          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide md:scrollbar-visible">
             {projects.map((project, index) => (
               <Card
                 key={`${project.id}-${index}`}
