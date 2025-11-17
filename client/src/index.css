@@ -277,6 +277,24 @@ html {
     background: hsl(var(--primary) / 0.7);
   }
 
+  /* CSS Auto-scroll animation for case studies */
+  @keyframes autoscroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .case-studies-autoscroll {
+    animation: autoscroll 60s linear infinite;
+  }
+  
+  .case-studies-autoscroll:hover {
+    animation-play-state: paused;
+  }
+
   /* Hide ugly search cancel button in Chrome until we can style it properly */
   input[type="search"]::-webkit-search-cancel-button {
     @apply hidden;

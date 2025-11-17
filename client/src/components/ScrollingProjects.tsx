@@ -1,8 +1,6 @@
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import { useLocation } from "wouter";
-import { useEffect, useRef } from "react";
 import aiDashboard from "@assets/stock_images/modern_business_prof_66fe6da9.jpg";
 import automation from "@assets/stock_images/automated_workflow_d_d41ad38e.jpg";
 import infrastructure from "@assets/stock_images/futuristic_technolog_2c39519e.jpg";
@@ -99,65 +97,6 @@ const projects = [
 
 export default function ScrollingProjects() {
   const [, setLocation] = useLocation();
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const animationFrameRef = useRef<number | null>(null);
-  const isPausedRef = useRef(false);
-
-  // Auto-scroll animation effect
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    // Only auto-scroll on desktop (md breakpoint and above)
-    const isDesktop = window.innerWidth >= 768;
-    if (!isDesktop) return;
-
-    // Continuous smooth auto-scroll animation
-    // Complete cycle in 30 seconds
-    const scrollSpeed = 0.3; // pixels per frame (slower, more comfortable)
-    
-    const animate = () => {
-      if (!container || isPausedRef.current) {
-        animationFrameRef.current = requestAnimationFrame(animate);
-        return;
-      }
-
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      
-      // Increment scroll position
-      container.scrollLeft += scrollSpeed;
-      
-      // Loop back to start when reaching the end
-      if (container.scrollLeft >= maxScroll) {
-        container.scrollLeft = 0;
-      }
-      
-      animationFrameRef.current = requestAnimationFrame(animate);
-    };
-
-    // Start animation
-    animationFrameRef.current = requestAnimationFrame(animate);
-
-    // Pause on hover
-    const handleMouseEnter = () => {
-      isPausedRef.current = true;
-    };
-
-    const handleMouseLeave = () => {
-      isPausedRef.current = false;
-    };
-
-    container.addEventListener('mouseenter', handleMouseEnter);
-    container.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-      container.removeEventListener('mouseenter', handleMouseEnter);
-      container.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
 
   return (
     <section className="py-20 md:py-32 relative overflow-hidden" id="case-studies" data-testid="section-projects">
@@ -173,83 +112,135 @@ export default function ScrollingProjects() {
           </p>
         </div>
 
-        {/* Continuous Auto-scrolling Container */}
+        {/* CSS Auto-scrolling Container - Desktop Only */}
         <div className="relative px-8">
           {/* Gradient fade indicators on edges */}
           <div className="hidden md:block absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="hidden md:block absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           
-          <div 
-            ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide"
-          >
-            {projects.map((project, index) => (
-              <Card
-                key={`${project.id}-${index}`}
-                className="flex-shrink-0 w-[85vw] sm:w-[400px] md:w-[380px] lg:w-[420px] overflow-hidden border-primary/10 hover:border-primary/30 transition-all cursor-pointer group"
-                onClick={() => setLocation(`/project/${project.id}`)}
-                data-testid={`project-card-${index}`}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-primary/80 text-xs font-medium text-white border border-primary/90">
-                      {project.client}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-semibold" data-testid={`project-title-${index}`}>
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-3">
-                    {Object.entries(project.metrics).slice(0, 2).map(([key, value]) => (
-                      <div key={key} className="flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4 text-primary" />
-                        <span className="text-sm font-medium">{value}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-xs px-2 py-1 rounded bg-primary/10 text-primary">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="w-full group/btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setLocation(`/project/${project.id}`);
-                    }}
-                    data-testid={`project-button-${index}`}
+          <div className="overflow-x-auto scrollbar-hide">
+            {/* Desktop: Auto-scrolling animation wrapper */}
+            <div className="hidden md:block">
+              <div className="case-studies-autoscroll flex gap-6">
+                {/* Duplicate the cards for seamless loop */}
+                {[...projects, ...projects].map((project, index) => (
+                  <div
+                    key={`${project.id}-${index}`}
+                    className="flex-shrink-0 w-[380px] group cursor-pointer"
+                    onClick={() => setLocation(`/case-studies/${project.id}`)}
                   >
-                    View Case Study
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
+                    <div className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
+                      <div className="relative h-48 overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                      </div>
+                      
+                      <div className="p-6 flex-1 flex flex-col">
+                        <div className="text-sm text-muted-foreground mb-2">{project.client}</div>
+                        <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm mb-4 flex-1">
+                          {project.description}
+                        </p>
+                        
+                        <div className="grid grid-cols-2 gap-3 mb-4">
+                          {Object.entries(project.metrics).map(([key, value]) => (
+                            <div key={key} className="text-center p-2 bg-muted/50 rounded">
+                              <div className="text-lg font-bold text-primary">{value}</div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tags.map((tag) => (
+                            <span key={tag} className="text-xs px-2 py-1 bg-primary/10 text-primary rounded">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                          View Case Study
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile: Manual scroll */}
+            <div className="md:hidden flex gap-6">
+              {projects.map((project) => (
+                <div
+                  key={project.id}
+                  className="flex-shrink-0 w-[320px] group cursor-pointer"
+                  onClick={() => setLocation(`/case-studies/${project.id}`)}
+                >
+                  <div className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    </div>
+                    
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="text-sm text-muted-foreground mb-2">{project.client}</div>
+                      <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm mb-4 flex-1">
+                        {project.description}
+                      </p>
+                      
+                      <div className="grid grid-cols-2 gap-3 mb-4">
+                        {Object.entries(project.metrics).map(([key, value]) => (
+                          <div key={key} className="text-center p-2 bg-muted/50 rounded">
+                            <div className="text-lg font-bold text-primary">{value}</div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className="text-xs px-2 py-1 bg-primary/10 text-primary rounded">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        View Case Study
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-              </Card>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
+        <div className="text-center mt-12 px-8">
+          <Button
+            size="lg"
+            className="group"
+            onClick={() => setLocation("/case-studies")}
+          >
+            View All Case Studies
+            <TrendingUp className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </div>
+      </div>
     </section>
   );
 }
