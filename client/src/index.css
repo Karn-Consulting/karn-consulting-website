@@ -295,6 +295,24 @@ html {
     animation-play-state: paused;
   }
 
+  /* Right to Left auto-scroll animation for case studies */
+  @keyframes scroll-rtl {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .case-studies-scroll-rtl {
+    animation: scroll-rtl 40s linear infinite;
+  }
+  
+  .case-studies-scroll-rtl:hover {
+    animation-play-state: paused;
+  }
+
   /* Hide ugly search cancel button in Chrome until we can style it properly */
   input[type="search"]::-webkit-search-cancel-button {
     @apply hidden;
